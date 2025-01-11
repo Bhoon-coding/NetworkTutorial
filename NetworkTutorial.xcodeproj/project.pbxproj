@@ -14,7 +14,7 @@
 		11EE2CED2D32B3DF00A29C76 /* Exceptions for "NetworkTutorial" folder in "NetworkTutorial" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 11EE2CDA2D32B3DE00A29C76 /* NetworkTutorial */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H84YUCF7F5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetworkTutorial/Info.plist;
+				INFOPLIST_FILE = NetworkTutorial/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -174,7 +174,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H84YUCF7F5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetworkTutorial/Info.plist;
+				INFOPLIST_FILE = NetworkTutorial/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
