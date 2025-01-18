@@ -19,42 +19,42 @@ struct User: Decodable {
     let email: String
     let phone: String
     
-    enum CodingKeys: String, CodingKey {
+    enum UserKeys: String, CodingKey {
         case id
         case name
         case details
+    }
+    
+    enum DetailsKeys: String, CodingKey {
+        case address
+        case contacts
         
-        enum DetailsKeys: String, CodingKey {
-            case address
-            case contacts
-            
-            enum AddressKeys: String, CodingKey {
-                case city
-                case postalCode
-            }
-            
-            enum ContactsKeys: String, CodingKey {
-                case email
-                case phone
-            }
-        }
+    }
+    
+    enum AddressKeys: String, CodingKey {
+        case city
+        case postalCode
+    }
+    
+    enum ContactsKeys: String, CodingKey {
+        case email
+        case phone
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: UserKeys.self)
         
         self.id = try container.decode(Int.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
         
-        let detailsContainer = try container.nestedContainer(keyedBy: CodingKeys.DetailsKeys.self, forKey: .details)
+        let detailsContainer = try container.nestedContainer(keyedBy: DetailsKeys.self, forKey: .details)
         
-        let addressContainer = try detailsContainer.nestedContainer(keyedBy: CodingKeys.DetailsKeys.AddressKeys.self, forKey: .address)
+        let addressContainer = try detailsContainer.nestedContainer(keyedBy: AddressKeys.self, forKey: .address)
         
         self.city = try addressContainer.decode(String.self, forKey: .city)
         self.postalCode = try addressContainer.decode(String.self, forKey: .postalCode)
         
-        let contactsContainer = try detailsContainer.nestedContainer(keyedBy: CodingKeys.DetailsKeys.ContactsKeys.self, forKey: .contacts)
-        
+        let contactsContainer = try detailsContainer.nestedContainer(keyedBy: ContactsKeys.self, forKey: .contacts)
         self.email = try contactsContainer.decode(String.self, forKey: .email)
         self.phone = try contactsContainer.decode(String.self, forKey: .phone)
     }
@@ -68,25 +68,19 @@ struct User: Decodable {
 //    let id: Int
 //    let name: String
 //    let details: DetailsInfo
-//    
-//    struct DetailsInfo: Decodable {
-//        var address: AddressInfo
-//        let contacts: ContactsInfo
-//    }
+//}
 //
-//    struct AddressInfo: Decodable {
-//        let city: String
-//        let postalCode: String
-//    }
+//struct DetailsInfo: Decodable {
+//    var address: AddressInfo
+//    let contacts: ContactsInfo
+//}
 //
-//    struct ContactsInfo: Decodable {
-//        let email: String
-//        let phone: String
-//    }
-//    
-//    enum CodingKeys: CodingKey {
-//        case id
-//        case name
-//        case details
-//    }
+//struct AddressInfo: Decodable {
+//    let city: String
+//    let postalCode: String
+//}
+//
+//struct ContactsInfo: Decodable {
+//    let email: String
+//    let phone: String
 //}

@@ -33,7 +33,7 @@ class NetworkViewController: UIViewController {
         self.decodeUserData()
     }
     
-    func decodeUserData() {
+    private func decodeUserData() {
         if let jsonData = jsonString.data(using: .utf8) {
             do {
                 let user = try JSONDecoder().decode(User.self, from: jsonData)
